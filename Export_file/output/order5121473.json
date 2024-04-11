@@ -1,0 +1,15 @@
+{
+    "customer_name": "Albert",
+    "delivery_postal": "119199",
+    "item_lines": [
+        {
+            "item_id": "1",
+            "item_name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+            "price": 109.95,
+            "quantity": "1"
+        }
+    ],
+    "order_number": "5121473",
+    "total_price": 109.95,
+    "unique_items": 1
+}

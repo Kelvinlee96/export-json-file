@@ -1,0 +1,33 @@
+{
+    "customer_name": "Patty Marie",
+    "delivery_postal": "119199",
+    "item_lines": [
+        {
+            "item_id": "18",
+            "item_name": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+            "price": 9.85,
+            "quantity": "2"
+        },
+        {
+            "item_id": "5",
+            "item_name": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+            "price": 695,
+            "quantity": "3"
+        },
+        {
+            "item_id": "7",
+            "item_name": "White Gold Plated Princess",
+            "price": 9.99,
+            "quantity": "1"
+        },
+        {
+            "item_id": "7",
+            "item_name": "White Gold Plated Princess",
+            "price": 9.99,
+            "quantity": "2"
+        }
+    ],
+    "order_number": "6728173",
+    "total_price": 724.83,
+    "unique_items": 3
+}

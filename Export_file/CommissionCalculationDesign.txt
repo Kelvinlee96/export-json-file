@@ -1,0 +1,48 @@
+Init CommissionCalculation()
+
+let commissionAmt;
+
+if SalesOrder.trade_partner !== null && SalesOrder.is_completed && !SalesOrder.is_commission_paid
+
+	let needToPayCommision = true;
+	
+	foreach item_fulfillment in SalesOrder
+		if (item_fulfullment.fulfullment_date < 30)
+			needToPayCommision = false;
+			break;
+	
+	if (needToPayCommision)
+		let itemList = [];
+		for item in SalesOrder.item_sublist
+			if (item.item_type == 'Physical')
+				itemList.push(item);
+				
+		if(SalesOrder.CreditMemo !== null)
+			for item in SalesOrder.CreditMemo.item_sublist
+				for i in itemList
+					if (i.item_id == item.item_id )
+						i.quantity = i.quantity - item.quantity;
+			
+		
+		let totalAmount = 0;
+		
+		for item in itemList
+			let itemTotal = item.price * item.quantity;
+			totalAmount = totalAmount + itemTotal;
+		
+		commissionAmt = totalAmount * 12 / 100;
+		
+		# triggered payment function
+		SalesOrder.is_commission_paid = true;
+			
+
+
+
+
+Assumptions:
+Item delivery date which refer to fulfillment_date
+Payments to trade partners made every 1 months
+Assume SalesOrder have is_completed flag to make sure the order has been fully fulfill
+Assume SalesOrder have is_commission_paid flag to make sure the commision has been fully paid
+Credit Memo can only be created when user request a refund after the sales order is completed
+Assume Item Lines have price to indicate the specific price
